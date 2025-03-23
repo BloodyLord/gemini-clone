@@ -1,0 +1,46 @@
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  max-height: 180px;
+  gap: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: solid 1px rgb(170, 170, 170);
+}
+
+.icon-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.icon-div:hover {
+  background-color: #e2e6eb;
+}
+
+.icon-div img {
+
+  object-fit: contain;
+  height: 50%;
+  cursor: pointer;
+}
+
+.search-box textarea {
+  resize: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.search-box .button-container {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}

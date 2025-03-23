@@ -1,7 +1,21 @@
+import { useState } from "react";
 import { assets } from "../../assets/assets";
 import "./mainApp.css";
+import SearchBox from "./SearchBox";
 
 export default function MainApp() {
+  const [inputVal, setInputVal] = useState("");
+  const [userQuery, setUserQuery] = useState("");
+
+  function handleInputValueChange(newValue) {
+    setInputVal(newValue);
+  }
+
+  function onSend() {
+    setUserQuery(inputVal);
+    console.log(userQuery);
+  }
+
   return (
     <div className="main">
       <div className="nav">
@@ -21,11 +35,11 @@ export default function MainApp() {
 
         <div className="cards">
           <div className="card">
-            <p>Lorem ipsum dolor sit.</p>
+            <p>Beeru ki galat kaam ki latt kaise chudwayi jaye.</p>
             <img src={assets.compass_icon} alt="" />
           </div>
           <div className="card">
-            <p>Lorem ipsum dolor sit.</p>
+            <p>Ayush ko pack karna hai.</p>
             <img src={assets.bulb_icon} alt="" />
           </div>
           <div className="card">
@@ -39,15 +53,11 @@ export default function MainApp() {
         </div>
 
         <div className="main-bottom">
-          <div className="search-box">
-            <input type="text" placeholder="Ask Gemini" />
-            <div>
-              <img src={assets.gallery_icon} alt="" srcset="" />
-              <img src={assets.mic_icon} alt="" />
-              <img src={assets.send_icon} alt="" />
-            </div>
-          </div>
-
+          <SearchBox
+            inputValue={inputVal}
+            handleInputValueChange={handleInputValueChange}
+            onSend={onSend}
+          />
           <p className="bottom-info">
             Gemini - clone does not make mistakes, so believe in what it says.
           </p>

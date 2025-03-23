@@ -6,9 +6,11 @@ export default function Sidebar() {
   const [extended, setExtended] = useState(false);
 
   return (
-    <div className="sidebar" style={{width: !extended? "77px": "250px"}}>
+    <div className="sidebar" style={{width: !extended? "77px": "250px"}}
+    onMouseEnter={()=>setExtended(true)}
+    onMouseLeave={()=>setExtended(false)}>
       <div className="top">
-        <img className="menu" src={assets.menu_icon} alt="" srcset="" onClick={()=>setExtended(!extended)}/>
+        <img className="menu" src={assets.menu_icon} alt="" srcset="" onClick={()=>setExtended(!extended)} />
         <div className="new-chat">
           <img src={assets.plus_icon} alt="" srcset="" />
           {extended ? <span>New Chat</span> : null}

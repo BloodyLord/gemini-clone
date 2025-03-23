@@ -78,7 +78,7 @@
 
 .main .card:hover {
   background-color: #dfe4ea;
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .main .main-bottom {
@@ -90,42 +90,7 @@
   margin: auto;
 }
 
-.search-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 10px 20px;
-  border-radius: 50px;
-  border: solid 1px rgb(170, 170, 170);
-}
 
-.search-box img {
-  width: 20px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.search-box img:hover {
-  background-color: #e2e6eb;
-}
-
-.search-box input {
-  flex: 1;
-  flex-grow: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 8px;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.search-box div {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
 
 .main .bottom-info {
   font-size: 12px;
