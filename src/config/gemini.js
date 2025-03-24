@@ -1,4 +1,4 @@
-const apiKey = "AIzaSyDInX-I16yN-4HwyJw48f13VTnppuY37Qk";
+// const apiKey = "AIzaSyDInX-I16yN-4HwyJw48f13VTnppuY37Qk";
 
 import {
     GoogleGenerativeAI,
@@ -8,7 +8,7 @@ import {
   import fs from "node:fs";
   import mime from "mime-types";
   
-//   const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({
