@@ -7,7 +7,7 @@ import {
   import fs from "node:fs";
   import mime from "mime-types";
   
-  const apiKey = process.env.API_KEY;
+  const apiKey = process.env.REACT_APP_API_KEY;
   console.log(apiKey);
   const genAI = new GoogleGenerativeAI(apiKey);
   
