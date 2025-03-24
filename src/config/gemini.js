@@ -8,6 +8,7 @@ import {
   import mime from "mime-types";
   
   const apiKey = process.env.API_KEY;
+  console.log(apiKey);
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({
