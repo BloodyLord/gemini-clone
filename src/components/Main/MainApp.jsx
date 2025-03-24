@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { assets } from "../../assets/assets";
 import "./mainApp.css";
 import SearchBox from "./SearchBox";
+import Navbar from "./navbar";
+import { Context } from "../../context/context";
 
 export default function MainApp() {
   const [inputVal, setInputVal] = useState("");
   const [userQuery, setUserQuery] = useState("");
+  const { showResult, recentPrompt, resultData, loading } = useContext(Context);
 
   function handleInputValueChange(newValue) {
     setInputVal(newValue);
@@ -13,51 +16,62 @@ export default function MainApp() {
 
   function onSend() {
     setUserQuery(inputVal);
-    console.log(userQuery);
   }
 
   return (
     <div className="main">
-      <div className="nav">
-        <p>
-          Gemini<br></br> <span className="type">3.0 Clone</span>
-        </p>
-        <img src={assets.user_icon} alt="" srcset="" />
-      </div>
-
+      <Navbar />
       <div className="main-container">
-        <div className="greet">
-          <p>
-            <span>Hello, Aditya Kumar</span>
-          </p>
-          <p>How can I help you today?</p>
-        </div>
-
-        <div className="cards">
-          <div className="card">
-            <p>Beeru ki galat kaam ki latt kaise chudwayi jaye.</p>
-            <img src={assets.compass_icon} alt="" />
+        {!showResult ? (
+          <>
+            <div className="greet">
+              <p>
+                <span>Hello, Aditya Kumar</span>
+              </p>
+              <p>How can I help you today?</p>
+            </div>
+            <div className="cards">
+              <div className="card">
+                <p>Beeru ki galat kaam ki latt kaise chudwayi jaye.</p>
+                <img src={assets.compass_icon} alt="" />
+              </div>
+              <div className="card">
+                <p>Ayush ko pack karna hai.</p>
+                <img src={assets.bulb_icon} alt="" />
+              </div>
+              <div className="card">
+                <p>Lorem ipsum dolor sit.</p>
+                <img src={assets.message_icon} alt="" />
+              </div>
+              <div className="card">
+                <p>Lorem ipsum dolor sit.</p>
+                <img src={assets.code_icon} alt="" />
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="result">
+            <div className="result-title">
+              <img src={assets.user_icon} alt="" srcset="" />
+              <p>{recentPrompt}</p>
+            </div>
+            <div className="result-data">
+              <img src={assets.gemini_icon} alt="" srcset="" />
+              {loading ? (
+                <div className="loader">
+                  <hr />
+                  <hr />
+                  <hr />
+                </div>
+              ) : (
+                <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+              )}
+            </div>
           </div>
-          <div className="card">
-            <p>Ayush ko pack karna hai.</p>
-            <img src={assets.bulb_icon} alt="" />
-          </div>
-          <div className="card">
-            <p>Lorem ipsum dolor sit.</p>
-            <img src={assets.message_icon} alt="" />
-          </div>
-          <div className="card">
-            <p>Lorem ipsum dolor sit.</p>
-            <img src={assets.code_icon} alt="" />
-          </div>
-        </div>
+        )}
 
         <div className="main-bottom">
-          <SearchBox
-            inputValue={inputVal}
-            handleInputValueChange={handleInputValueChange}
-            onSend={onSend}
-          />
+          <SearchBox />
           <p className="bottom-info">
             Gemini - clone does not make mistakes, so believe in what it says.
           </p>
