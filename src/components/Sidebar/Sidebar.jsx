@@ -1,14 +1,27 @@
 import "./sidebar.css";
 import { assets } from "../../assets/assets";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Sidebar() {
   const [extended, setExtended] = useState(false);
+  const timeoutRef = useRef(null);
+  const handleMouseEnter = () => {
+    timeoutRef.current = setTimeout(() => {
+      setExtended(true);
+    }, 500);
+  };
 
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current); // Clear the timeout if it exists
+      timeoutRef.current = null; // Reset the ref to null
+    }
+    setExtended(false);
+  };
   return (
     <div className="sidebar" style={{width: !extended? "77px": "250px"}}
-    onMouseEnter={()=>setExtended(true)}
-    onMouseLeave={()=>setExtended(false)}>
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}>
       <div className="top">
         <img className="menu" src={assets.menu_icon} alt="" srcset="" onClick={()=>setExtended(!extended)} />
         <div className="new-chat">

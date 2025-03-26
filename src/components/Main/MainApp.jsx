@@ -53,7 +53,7 @@ export default function MainApp() {
           <div className="result">
             <div className="result-title">
               <img src={assets.user_icon} alt="" srcset="" />
-              <p>{recentPrompt}</p>
+              <pre> {recentPrompt} </pre>
             </div>
             <div className="result-data">
               <img src={assets.gemini_icon} alt="" srcset="" />
@@ -64,7 +64,8 @@ export default function MainApp() {
                   <hr />
                 </div>
               ) : (
-                <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+
+                <pre dangerouslySetInnerHTML={{ __html: resultData }}></pre>
               )}
             </div>
           </div>

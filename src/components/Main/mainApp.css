@@ -81,7 +81,7 @@
 
 .result {
   padding: 0px, 5%;
-  max-height: 60vh;
+  max-height: 59vh;
   overflow-y: scroll;
 }
 
@@ -119,9 +119,10 @@
   border-radius: 4px;
   background-color: #f6f7f8;
   background-size: 800px 50px;
+  width: 100vh;
   height: 20px;
   
-  background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff);
+  background: linear-gradient(to left, #9ed7ff, #ffffff, #c39eff, #9ed7ff);
   animation: loader 3s infinite linear;
 }
 
@@ -140,3 +141,9 @@
   line-height: 1.8;
 }
 
+.result-data pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100vh;
+}
