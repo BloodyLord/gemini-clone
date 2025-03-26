@@ -30,24 +30,6 @@ export default function MainApp() {
               </p>
               <p>How can I help you today?</p>
             </div>
-            <div className="cards">
-              <div className="card">
-                <p>Beeru ki galat kaam ki latt kaise chudwayi jaye.</p>
-                <img src={assets.compass_icon} alt="" />
-              </div>
-              <div className="card">
-                <p>Ayush ko pack karna hai.</p>
-                <img src={assets.bulb_icon} alt="" />
-              </div>
-              <div className="card">
-                <p>Lorem ipsum dolor sit.</p>
-                <img src={assets.message_icon} alt="" />
-              </div>
-              <div className="card">
-                <p>Lorem ipsum dolor sit.</p>
-                <img src={assets.code_icon} alt="" />
-              </div>
-            </div>
           </>
         ) : (
           <div className="result">
